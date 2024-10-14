@@ -49,16 +49,72 @@
      ```
    - Esto generará un archivo ejecutable en la carpeta `dist`.
 
-3. **Ejecución del ejecutable**:
-   - Navegar a la carpeta `dist` y ejecutar el archivo generado:
+## 3. Empaquetar el Script con PyInstaller
+
+1. **Instalar PyInstaller**:
+   - Si aún no lo has hecho, instala `PyInstaller` ejecutando:
      ```bash
-     cd dist
-     ./initpdf.exe
+     pip install pyinstaller
      ```
-   - Si el archivo se cierra de inmediato, ejecutar con la opción de depuración para ver posibles errores:
+
+2. **Crear el ejecutable**:
+   - Navegar al directorio donde se encuentra tu script `initpdf.py`:
+   - Ejecutar `PyInstaller` para crear un ejecutable en modo de archivo único:
+     ```bash
+     pyinstaller --onefile initpdf.py
+     ```
+   - Esto generará una carpeta `dist` dentro de la cual encontrarás el archivo ejecutable `initpdf.exe`.
+
+3. **Opciones adicionales de PyInstaller**:
+   - **Incluir el modo ventana** (sin mostrar la consola, útil para aplicaciones con GUI):
+     ```bash
+     pyinstaller --onefile --windowed initpdf.py
+     ```
+   - **Incluir un ícono personalizado** para el ejecutable:
+     ```bash
+     pyinstaller --onefile --icon=icono.ico initpdf.py
+     ```
+   - **Incluir el modo de depuración** para ver mensajes de error y logs durante la ejecución:
      ```bash
      pyinstaller --onefile --debug initpdf.py
      ```
+
+4. **Archivos generados por PyInstaller**:
+   - Al ejecutar `PyInstaller`, se crean varias carpetas y archivos:
+     - `dist/`: Contiene el archivo ejecutable (`initpdf.exe`).
+     - `build/`: Archivos temporales utilizados durante el proceso de empaquetado.
+     - `initpdf.spec`: Archivo de especificaciones que define cómo se empaquetó el script. Puede ser útil para personalizar el empaquetado en futuras ejecuciones.
+
+5. **Probar el ejecutable**:
+   - Ir a la carpeta `dist` donde se generó el ejecutable:
+     ```bash
+     cd dist
+     ```
+   - Ejecutar el archivo `initpdf.exe`:
+     ```bash
+     ./initpdf.exe
+     ```
+   - Si el programa se cierra de inmediato, ejecutarlo desde la terminal para ver los mensajes de error:
+     ```bash
+     initpdf.exe
+     ```
+
+   - Si hay errores, puedes redirigir la salida a un archivo de texto para revisarlos:
+     ```bash
+     initpdf.exe > salida.txt 2>&1
+     ```
+
+6. **Ejemplos de uso**:
+   - **Crear un ejecutable con ícono y sin consola**:
+     ```bash
+     pyinstaller --onefile --windowed --icon=icono.ico initpdf.py
+     ```
+   - **Crear un ejecutable con depuración habilitada**:
+     ```bash
+     pyinstaller --onefile --debug all initpdf.py
+     ```
+
+
 
 ## 4. Solución de Problemas Comunes
 1. **Error: `ModuleNotFoundError`**:

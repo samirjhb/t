@@ -1,0 +1,5 @@
+# compiled output
+/dist
+/build
+# System Files
+.DS_Store
