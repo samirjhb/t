@@ -35,19 +35,6 @@
    - Si aparece un error relacionado con `Microsoft Visual C++ 14.0`, instalar las herramientas de construcción desde:
      [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-## 3. Empaquetar el Script con PyInstaller
-1. **Instalar PyInstaller**:
-   - En la terminal, ejecutar:
-     ```bash
-     pip install pyinstaller
-     ```
-
-2. **Generar un ejecutable**:
-   - Navegar al directorio del script y ejecutar:
-     ```bash
-     pyinstaller --onefile initpdf.py
-     ```
-   - Esto generará un archivo ejecutable en la carpeta `dist`.
 
 ## 3. Empaquetar el Script con PyInstaller
 
